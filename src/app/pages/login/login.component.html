@@ -2,24 +2,26 @@
   <div class="signup-container">
     @if(toggleForm){
      <form id="signup-form" class="signup-form">
-      <h2>Create an Accountx</h2>
-
+      <h2>Create an Account</h2>
+      <!--
       <div class="input-group">
         <label for="username">Full Namex</label>
         <input type="text" id="username" [(ngModel)]="registerObj.fullName" name="fullName" placeholder="Enter your full name" required>
         <small id="username-error" class="error-message"></small>
       </div>
-
+      -->
       <div class="input-group">
-        <label for="email">Email</label>
+        <label for="email">Uer (Email)</label>
         <input type="email" id="email" [(ngModel)]="registerObj.emailId" name="email" placeholder="Enter your email" required>
         <small id="email-error" class="error-message"></small>
       </div>
+      <!--
       <div class="input-group">
         <label for="mobileNo">Mobile No</label>
         <input type="text" id="mobileNo" [(ngModel)]="registerObj.mobileNo" name="mobileNo" placeholder="Enter your mobile number" required>
         <small id="mobileNo-error" class="error-message"></small>
       </div>
+    -->
       <div class="input-group">
         <label for="password">Password</label>
         <input type="password" id="password" [(ngModel)]="registerObj.password" name="password" placeholder="Enter your password" required>
@@ -30,7 +32,7 @@
         <input type="password" id="confirm-password" [(ngModel)]="confirmPassword" name="confirm-password" placeholder="Confirm your password" required>
         <small id="confirm-password-error" class="error-message"></small>
       </div>
-       <button type="button" (click)="onRegister()" class="submit-btn">Sign Up</button>
+       <button type="button" (click)="onRegister()" class="submit-btn">สมัครสมาชิก</button>
 
         <div class="login-link">
           <p (click)="toggleForm = false">Already have an account? <a>Login here</a></p>
@@ -41,7 +43,7 @@
           <h2>Login</h2>
 
           <div class="input-group">
-              <label for="email">Email</label>
+              <label for="email">User (Email)</label>
               <input type="email" id="email" [(ngModel)]="loginObj.emailId" name="email" placeholder="Enter your email" required>
               <small id="email-error" class="error-message"></small>
           </div>
@@ -52,10 +54,10 @@
               <small id="password-error" class="error-message"></small>
           </div>
 
-          <button type="button" (click)="onLogin()" class="submit-btn">Login</button>
+          <button type="button" (click)="onLogin()" class="submit-btn">ลงชื่อเข้าใช้งาน</button>
 
           <div class="login-link">
-            <p (click)="toggleForm = true">If You are New Here? <a>Sign Up</a></p>
+            <p (click)="toggleForm = true">If You are New Here? <a>สมัครสมาชิก</a></p>
           </div>
       </form>
      }
