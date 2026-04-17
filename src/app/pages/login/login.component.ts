@@ -1,9 +1,5 @@
 import { Component, inject } from '@angular/core'; 
 import { FormsModule } from '@angular/forms';
-// เพิ่ม inject เข้าไปในกลุ่มของ @angular/core
-
-
-// เพิ่ม HttpClient มาจาก @angular/common/http
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 @Component({
@@ -57,17 +53,17 @@ export class LoginComponent {
     }); // ปิด subscribe
   } // ปิด onRegister
 
-    onLogin() {
-    this.http.post("https://localhost:7284/api/User/Login", this.loginObj).subscribe((res:any)=>{
-      debugger;
-      alert("Login Success");
-      localStorage.setItem('userApp', JSON.stringify(res));
-      this.router.navigateByUrl("user-list")
-    },error=>{
-      debugger;
-      if(error.status == 401) {
-        alert(error.error)
-      }
+  onLogin() {
+    this.http.post("https://localhost:7284/api/User/Login", this.loginObj).subscribe({
+      next: (res: any) => {
+        alert("Login Success");
+        // เก็บ Token แยกไว้
+        localStorage.setItem('userToken', res.token); 
+        // เก็บข้อมูล User
+        localStorage.setItem('userApp', JSON.stringify(res.user));
+        this.router.navigateByUrl("user-list");
+      },
+      error: (err) => alert("Login Failed")
     });
   }
 }
